@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/jdbc
+	http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- Spring services autowired -->
+	<context:component-scan base-package="org.angular.model" />
+	
+	<!-- enable the configuration of transactional behavior based on annotations -->
+    <tx:annotation-driven/>
+    
+	<import resource="classpath:META-INF/test-beans.xml"/>
+	
+	<!-- Database -->
+	<jdbc:embedded-database id="datasource" type="H2"></jdbc:embedded-database>
+<!-- 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
+<!-- 		id="datasource"> -->
+<!-- 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" /> -->
+<!-- 		<property name="url" value="jdbc:hsqldb:file:/home/fabad/Proyectos/db/data"/> -->
+<!-- 		<property name="username" value="sa" /> -->
+<!-- 		<property name="password" value="" /> -->
+<!-- 	</bean> -->
+
+	<!-- Entity Manager -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="datasource" />
+		<property name="persistenceUnitName" value="tothought-tutorial-test" />
+	</bean>
+
+	<!-- Transaction Manager -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+</beans>
