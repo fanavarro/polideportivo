@@ -42,6 +42,10 @@ public class ScheduleServiceTest {
 		
 		scheduleService.save(newSchedule);
 		assertNotNull(newSchedule.getId());
+		
+		Schedule storedSchedule = scheduleService.findById(1);
+		assertNotNull(storedSchedule);
+		System.out.println(storedSchedule);
 	}
 	
 	private Date getDate(String stringDate) throws ParseException{
