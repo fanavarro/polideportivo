@@ -23,32 +23,57 @@ public class Sport implements Serializable {
 	 */
 	private static final long serialVersionUID = -6230802549890833535L;
 
+	/** The id. */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID_SPORT")
 	private Integer id;
 
+	/** The description. */
 	@Column(name = "DESCRIPTION")
 	private String description;
 
 
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the id.
+	 *
+	 * @param id the new id
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/**
+	 * Gets the description.
+	 *
+	 * @return the description
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Sets the description.
+	 *
+	 * @param description the new description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +82,9 @@ public class Sport implements Serializable {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -74,6 +102,9 @@ public class Sport implements Serializable {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Sport [id=" + id + ", description=" + description + "]";
