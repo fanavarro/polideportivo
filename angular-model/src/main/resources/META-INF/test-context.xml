@@ -21,7 +21,9 @@
 	<import resource="classpath:META-INF/test-beans.xml"/>
 	
 	<!-- Database -->
-	<jdbc:embedded-database id="datasource" type="H2"></jdbc:embedded-database>
+	<jdbc:embedded-database id="datasource" type="H2">
+		<jdbc:script location="classpath:db-script/test-db-init.sql"/>
+	</jdbc:embedded-database>
 <!-- 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
 <!-- 		id="datasource"> -->
 <!-- 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" /> -->
