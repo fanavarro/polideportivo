@@ -13,6 +13,11 @@ import javax.persistence.TemporalType;
 
 import org.angular.model.enums.WeekDay;
 
+/**
+ * Clase Schedule, que representa un turno (dia, hora de inicio y hora de fin)
+ * @author fabad
+ *
+ */
 @Entity
 @Table(name="SCHEDULE")
 public class Schedule {

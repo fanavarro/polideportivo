@@ -13,6 +13,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+/**
+ * Clase que representa a una persona.
+ * @author fabad
+ *
+ */
 @Entity
 @Table(name="PERSON")
 public class Person implements Serializable{

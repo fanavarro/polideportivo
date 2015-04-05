@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Clase que representa un deporte
+ * @author fabad
+ *
+ */
 @Entity
 @Table(name = "SPORT")
 public class Sport implements Serializable {
