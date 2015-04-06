@@ -1,7 +1,6 @@
 package org.angular.model.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,46 +8,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Clase que representa a una persona.
- * @author fabad
- *
+ * The Class Court.
  */
 @Entity
-@Table(name="PERSON")
-public class Person implements Serializable{
+@Table(name="COURT")
+public class Court implements Serializable{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6647458659870521129L;
-
+	private static final long serialVersionUID = -6174450583446919614L;
+	
 	/** The id. */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID_PERSON")
+	@Column(name="ID_COURT")
 	private Integer id;
 	
-	/** The name. */
-	@Column(name="NAME")
-	private String name;
+	/** The description. */
+	@Column(name="DESCRIPTION")
+	private String description;
 	
-	/** The surname. */
-	@Column(name="SURNAME")
-	private String surname;
-	
-	/** The login. */
-	@Column(name="LOGIN")
-	private String login;
-	
-	/** The age. */
-	@Column(name="AGE")
-	private Integer age;
+	/** The sport. */
+	@ManyToOne
+	@JoinColumn(name="ID_SPORT")
+	private Sport sport;
 
-	
 	/**
 	 * Gets the id.
 	 *
@@ -68,77 +57,40 @@ public class Person implements Serializable{
 	}
 
 	/**
-	 * Gets the name.
+	 * Gets the description.
 	 *
-	 * @return the name
+	 * @return the description
 	 */
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
 	/**
-	 * Sets the name.
+	 * Sets the description.
 	 *
-	 * @param name the new name
+	 * @param description the new description
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	/**
-	 * Gets the surname.
+	 * Gets the sport.
 	 *
-	 * @return the surname
+	 * @return the sport
 	 */
-	public String getSurname() {
-		return surname;
+	public Sport getSport() {
+		return sport;
 	}
 
 	/**
-	 * Sets the surname.
+	 * Sets the sport.
 	 *
-	 * @param surname the new surname
+	 * @param sport the new sport
 	 */
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSport(Sport sport) {
+		this.sport = sport;
 	}
-
-	/**
-	 * Gets the login.
-	 *
-	 * @return the login
-	 */
-	public String getLogin() {
-		return login;
-	}
-
-	/**
-	 * Sets the login.
-	 *
-	 * @param login the new login
-	 */
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	/**
-	 * Gets the age.
-	 *
-	 * @return the age
-	 */
-	public Integer getAge() {
-		return age;
-	}
-
-	/**
-	 * Sets the age.
-	 *
-	 * @param age the new age
-	 */
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -162,7 +114,7 @@ public class Person implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Person other = (Person) obj;
+		Court other = (Court) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -178,26 +130,18 @@ public class Person implements Serializable{
 	 */
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Person::[");
+		sb.append("Court::[");
 		sb.append(" " + super.toString() + "");
 		sb.append(" id:=");
 		sb.append(id);
-		sb.append(" name:=");
-		sb.append(name);
-		sb.append(" surname:=");
-		sb.append(surname);
-		sb.append(" login:=");
-		sb.append(login);
-		sb.append(" age:=");
-		sb.append(age);
+		sb.append(" description:=");
+		sb.append(description);
+		sb.append(" sport:=");
+		sb.append(sport);
 		sb.append(']');
 		return sb.toString();
 	}
-
-
-
-
 	
 	
-	
+
 }

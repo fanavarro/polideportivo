@@ -19,41 +19,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:META-INF/test-context.xml")
-@Transactional
 public class PersonServiceTest {
 
 	@Autowired
 	private PersonService personService;
 
 	@Autowired
-	private SportService sportService;
-
-	@Autowired
 	private Person person;
-
-	@Autowired
-	private List<Sport> sportList;
 
 	@Test
 	public void test() {
-		sportService.save(sportList);
-		List<Sport> availableSports = sportService.findAll();
-		assertNotNull(availableSports);
-		assertEquals(4, availableSports.size());
-		List<Sport> personSports = new ArrayList<Sport>();
-		personSports.add(availableSports.get(0));
-		personSports.add(availableSports.get(1));
-		person.setSports(personSports);
 		personService.save(person);
 		List<Person> lista = personService.findAll();
 		assertNotNull(lista);
 		assertEquals(1, lista.size());
 		Person personStored = personService.findById(person.getId());
 		assertNotNull(personStored);
-		assertNotNull(personStored.getSports());
-		
-		Sport sport = sportService.findById(1);
-		assertNotNull(sport);
 	}
 
 }
