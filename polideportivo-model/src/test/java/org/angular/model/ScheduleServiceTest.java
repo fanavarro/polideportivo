@@ -3,15 +3,14 @@
  */
 package org.angular.model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.angular.model.entities.Schedule;
 import org.angular.model.enums.WeekDay;
 import org.angular.model.service.api.ScheduleService;
+import org.angular.model.utils.DateUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,23 +35,15 @@ public class ScheduleServiceTest {
 	@Test
 	public void test() throws ParseException {
 		Schedule newSchedule = new Schedule();
-		newSchedule.setWeekDay(WeekDay.TUESDAY);
-		newSchedule.setStartHour(this.getDate("21:30"));
-		newSchedule.setEndHour(this.getDate("22:30"));
+		newSchedule.setWeekDay(WeekDay.FRIDAY);
+		newSchedule.setStartHour(DateUtils.getDateByString("21:30", "hh:mm"));
+		newSchedule.setEndHour(DateUtils.getDateByString("22:30", "hh:mm"));
 		
 		scheduleService.save(newSchedule);
 		assertNotNull(newSchedule.getId());
 		
-		Schedule storedSchedule = scheduleService.findById(1);
+		Schedule storedSchedule = scheduleService.findById(newSchedule.getId());
 		assertNotNull(storedSchedule);
-		System.out.println(storedSchedule);
-	}
-	
-	private Date getDate(String stringDate) throws ParseException{
-		SimpleDateFormat dt = new SimpleDateFormat("hh:mm"); 
-		Date date = dt.parse(stringDate); 
-		return date;
-		
 	}
 
 }
