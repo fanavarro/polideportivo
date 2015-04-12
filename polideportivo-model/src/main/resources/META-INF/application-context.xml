@@ -30,9 +30,9 @@
 	</bean>
 
 	<!-- Jpa Repositories -->
-	<jpa:repositories base-package="org.angular.model.dao.api"></jpa:repositories>
+	<jpa:repositories base-package="org.polideportivo.model.dao.api"></jpa:repositories>
 
 	<!-- Spring services autowired -->
 	<context:annotation-config />
-	<context:component-scan base-package="org.angular.model" />
+	<context:component-scan base-package="org.polideportivo.model" />
 </beans>

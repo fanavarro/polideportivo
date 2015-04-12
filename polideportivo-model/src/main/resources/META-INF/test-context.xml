@@ -13,7 +13,7 @@
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 	<!-- Spring services autowired -->
-	<context:component-scan base-package="org.angular.model" />
+	<context:component-scan base-package="org.polideportivo.model" />
 	
 	<!-- enable the configuration of transactional behavior based on annotations -->
     <tx:annotation-driven/>

@@ -6,16 +6,16 @@
 
 
 
-	<bean id="tenis" class="org.angular.model.entities.Sport">
+	<bean id="tenis" class="org.polideportivo.model.entities.Sport">
 		<property name="description" value="tenis" />
 	</bean>
-	<bean id="futbol" class="org.angular.model.entities.Sport">
+	<bean id="futbol" class="org.polideportivo.model.entities.Sport">
 		<property name="description" value="futbol" />
 	</bean>
-	<bean id="baloncesto" class="org.angular.model.entities.Sport">
+	<bean id="baloncesto" class="org.polideportivo.model.entities.Sport">
 		<property name="description" value="baloncesto" />
 	</bean>
-	<bean id="atletismo" class="org.angular.model.entities.Sport">
+	<bean id="atletismo" class="org.polideportivo.model.entities.Sport">
 		<property name="description" value="atletismo" />
 	</bean>
 
@@ -30,7 +30,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="person1" class="org.angular.model.entities.Person">
+	<bean id="person1" class="org.polideportivo.model.entities.Person">
 		<property name="name" value="Francisco" />
 		<property name="surname" value="Abad" />
 		<property name="login" value="fabad" />
