@@ -7,6 +7,11 @@
   <packaging>pom</packaging>
   <name>angular</name>
   <modules>
-    <module>angular-model</module>
+    <module>polideportivo-model</module>
+    
+    <module>polideportivo-ws</module>
   </modules>
+  <properties>
+  	<java.version>1.8</java.version>
+  </properties>
 </project>
