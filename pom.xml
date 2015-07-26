@@ -5,8 +5,8 @@
   <artifactId>polideportivo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>polideportivo</name>
+  <name>angular</name>
   <modules>
-    <module>polideportivo-model</module>
+    <module>angular-model</module>
   </modules>
 </project>

@@ -67,14 +67,6 @@ public abstract class GeneralDaoImpl<C, K extends Serializable> implements
 	}
 
 	/* (non-Javadoc)
-	 * @see org.springframework.data.jpa.repository.JpaRepository#saveAndFlush(java.lang.Object)
-	 */
-	@Override
-	public C saveAndFlush(C entity) {
-		return simpleJpaRepository.saveAndFlush(entity);
-	}
-
-	/* (non-Javadoc)
 	 * @see org.springframework.data.jpa.repository.JpaRepository#deleteInBatch(java.lang.Iterable)
 	 */
 	@Override
@@ -127,7 +119,7 @@ public abstract class GeneralDaoImpl<C, K extends Serializable> implements
 	 * @see org.springframework.data.repository.CrudRepository#findAll(java.lang.Iterable)
 	 */
 	@Override
-	public Iterable<C> findAll(Iterable<K> ids) {
+	public List<C> findAll(Iterable<K> ids) {
 		return simpleJpaRepository.findAll(ids);
 	}
 
@@ -172,6 +164,16 @@ public abstract class GeneralDaoImpl<C, K extends Serializable> implements
 	@Override
 	public void deleteAll() {
 		simpleJpaRepository.deleteAll();
+	}
+
+	@Override
+	public C getOne(K id) {
+		return simpleJpaRepository.getOne(id);
+	}
+
+	@Override
+	public <S extends C> S saveAndFlush(S entity) {
+		return simpleJpaRepository.saveAndFlush(entity);
 	}
 	
 	/**
